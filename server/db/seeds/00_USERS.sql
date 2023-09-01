@@ -1,1 +1,2 @@
 INSERT INTO users (user_name, email, password) VALUES ('Mint', 'dburnham1212@gmail.com', '$2b$10$B.4CCjTInb8iVDR0IfLkzex6zBgkgx/bUlnYrGCyecJxc/Acov2HG');
+INSERT INTO users (user_name, email, password) VALUES ('David', 'adavidliang@gmail.com', '$2b$10$B.4CCjTInb8iVDR0IfLkzex6zBgkgx/bUlnYrGCyecJxc/Acov2HG');
