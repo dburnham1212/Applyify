@@ -6,6 +6,7 @@ import NavBar from './components/NavBar';
 import Home from './components/Home';
 import Login from './components/Login';
 import Register from './components/Register';
+import Dashboard from './components/Dashboard';
 
 function App() {
   return (
@@ -14,11 +15,13 @@ function App() {
         <NavBar />
         <Routes>
           {/* Home Page*/}
-          <Route path="/" element={<Home/>}/>
+          <Route path="/" element={<Home />} />
           {/* Login Page */}
-          <Route path="login" element={<Login/>}/>
+          <Route path="login" element={<Login />} />
           {/* Register Page */}
-          <Route path="register" element={<Register/>}/>
+          <Route path="register" element={<Register />} />
+          {/* Dashboard Page */}
+          <Route path="Dashboard" element={<Dashboard />} />
         </Routes>
       </BrowserRouter>
     </div>

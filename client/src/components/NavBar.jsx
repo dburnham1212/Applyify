@@ -24,6 +24,9 @@ const NavBar = () => {
               <li className="nav-item active">
                 <Link className="nav-link text-light" to="/">Home</Link>
               </li>
+              <li className="nav-item text-light">
+                <Link className="nav-link text-light" to="/Dashboard">Dashboard</Link>
+              </li>
             </ul>
             <ul className="navbar-nav d-flex justify-content-end">
               <li className="nav-item">
