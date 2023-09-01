@@ -12,7 +12,7 @@ const NavBar = () => {
   return(
     <nav className="navbar navbar-expand-md navbar-light fixed-top bg-dark py-4">
       <div className="container-fluid">
-        <a className="navbar-brand text-light px-4" href="#">Skatestructor</a>
+        <a className="navbar-brand text-light px-4" href="#">Applyify</a>
         <button 
           className="navbar-toggler bg-light mx-4" 
           type="button" 
