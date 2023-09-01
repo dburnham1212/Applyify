@@ -28,6 +28,7 @@ const Register = () => {
             <button className="btn btn-dark">Register</button>
           </div>
         </form>
+        
       </div>
     </div>
   )
