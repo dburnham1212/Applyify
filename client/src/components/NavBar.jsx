@@ -5,6 +5,7 @@ import { authContext } from "../providers/AuthProvider";
 const NavBar = () => {
   const {
     authenticated,
+    user,
     onLogout
   } = useContext(authContext);
 
@@ -32,6 +33,9 @@ const NavBar = () => {
           </ul>
           {authenticated ? 
           <ul className="navbar-nav d-flex justify-content-end">
+            <li className="nav-item">
+              <span className="nav-link text-light"> Logged in as: {user.user_name}</span>
+            </li>
             <li className="nav-item">
               <span className="nav-link text-light" onClick={() => onLogout()} style={{cursor: "pointer"}}>Logout</span>
             </li>
