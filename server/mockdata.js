@@ -1,6 +1,3 @@
-function Dashboard() {
-
-  return(
 <div className="overflow-x-auto">
   <table className="table table-xs">
     <thead>
@@ -209,7 +206,3 @@ function Dashboard() {
     </tfoot>
   </table>
 </div>
-  )
-}
-
-export default Dashboard;
