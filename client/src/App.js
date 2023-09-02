@@ -12,21 +12,18 @@ import Dashboard from './components/Dashboard';
 //Import context provider data
 import { authContext } from './providers/AuthProvider';
 
-//Import context provider data
-import { authContext } from './providers/AuthProvider';
-
 function App() {
   const {
     authenticated
   } = useContext(authContext)
 
   return (
-    <div className="App">
+    <div>
       <BrowserRouter>
         <NavBar />
         <Routes>
           {/* Home Page*/}
-          <Route path="/" element={authenticated ? <Home /> : <Login />} />
+          <Route path="/" element={<Home/>}/>
           {/* Login Page */}
           <Route path="login" element={authenticated ? <Home /> : <Login />} />
           {/* Register Page */}
