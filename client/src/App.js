@@ -7,6 +7,10 @@ import NavBar from './components/NavBar';
 import Home from './components/Home';
 import Login from './components/Login';
 import Register from './components/Register';
+import Dashboard from './components/Dashboard';
+
+//Import context provider data
+import { authContext } from './providers/AuthProvider';
 
 //Import context provider data
 import { authContext } from './providers/AuthProvider';
@@ -22,11 +26,13 @@ function App() {
         <NavBar />
         <Routes>
           {/* Home Page*/}
-          <Route path="/" element={authenticated ? <Home/> : <Login/>}/>
+          <Route path="/" element={authenticated ? <Home /> : <Login />} />
           {/* Login Page */}
-          <Route path="login" element={authenticated ? <Home/> : <Login/>}/>
+          <Route path="login" element={authenticated ? <Home /> : <Login />} />
           {/* Register Page */}
-          <Route path="register" element={authenticated ? <Home/> : <Register/>}/>
+          <Route path="register" element={authenticated ? <Home /> : <Register />} />
+          {/* Dashboard Page */}
+          <Route path="Dashboard" element={authenticated ? <Dashboard /> : <Login />} />
         </Routes>
       </BrowserRouter>
     </div>
