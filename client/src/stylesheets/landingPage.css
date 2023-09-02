@@ -1,0 +1,26 @@
+.landing__hero-image {
+  object-fit: cover;
+  height: 400px;
+  width: 100vw;
+  filter: brightness(80%);
+}
+
+.landing__get-started-button {
+  position: absolute;
+  top: 400px;
+  left: 50px;
+}
+
+.landing__hero-image-title {
+  position: absolute;
+  top: 275px;
+  left: 50px;
+  color: white;
+}
+
+.landing__hero-image-text {
+  position: absolute;
+  top: 350px;
+  left: 50px;
+  color: white;
+}
