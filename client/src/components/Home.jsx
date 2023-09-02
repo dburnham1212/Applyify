@@ -8,10 +8,12 @@ const Home = () => {
       <button href="#" className="landing__get-started-button btn btn-dark btn-lg">Get Started</button>
       <h1 className="landing__hero-image-title">Applyify</h1>
       <h5 className="landing__hero-image-text">Your Ultimate Job Hunting Companion</h5>
-      <div className="card d-flex justify-content-center" style={{width: "70vw", height: "60vh"}} >
-      
+      <div className="card my-5 mx-auto col-10" >
+        <div className="card-header">
+          <h2> What can applyify do for you? </h2>
+        </div>
         <div className="card-body">
-          
+          <h1></h1>
           <p className="card-text">Applyify is a powerful and user-friendly mobile app that streamlines and enhances your job search experience. Say goodbye to scattered notes, multiple job boards, and missed opportunities. With JobSearch Pro, you can efficiently manage your job hunt from start to finish.</p>
         </div>
       </div>
