@@ -12,6 +12,9 @@ import Dashboard from './components/Dashboard';
 //Import context provider data
 import { authContext } from './providers/AuthProvider';
 
+//Import context provider data
+import { authContext } from './providers/AuthProvider';
+
 function App() {
   const {
     authenticated
