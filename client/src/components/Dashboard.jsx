@@ -1,5 +1,8 @@
 import { useState } from "react";
 
+
+
+// COMPONENTS
 import applications from "../mocks/applications";
 import ApplicationCardItem from "./ApplicationCardItem";
 import ApplicationListItem from "./ApplicationListItem";
@@ -40,9 +43,9 @@ function Dashboard() {
       </div>
       {/* List view */}
       {view === viewStates.list && 
-        <div className="col-11 mx-auto table-responsive text-nowrap">
-          <table class="table table-striped ">
-            <thead>
+        <div className="col-11 mx-auto table-responsive text-nowrap border border-dark">
+          <table class="table table-striped border-dark">
+            <thead className="thead-dark">
               <tr>
                 <th scope="col">Date</th>
                 <th scope="col">Position</th>
@@ -59,7 +62,7 @@ function Dashboard() {
       }
       {/* Card view */}
       {view === viewStates.card && 
-        <div className="col-11 mx-auto containter-fluid">
+        <div className="col-11 mx-auto containter-fluid ">
           <div className="row g-2">
             {applicationCardData}
           </div>

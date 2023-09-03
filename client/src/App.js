@@ -1,15 +1,17 @@
-import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useContext } from 'react';
 
-//Import components
+// CSS
+import "./stylesheets/main.css"
+
+// Import components
 import NavBar from './components/NavBar';
 import Home from './components/Home';
 import Login from './components/Login';
 import Register from './components/Register';
 import Dashboard from './components/Dashboard';
 
-//Import context provider data
+// Import context provider data
 import { authContext } from './providers/AuthProvider';
 
 function App() {
@@ -18,7 +20,7 @@ function App() {
   } = useContext(authContext)
 
   return (
-    <div>
+    <div className="main__background">
       <BrowserRouter>
         <NavBar />
         <Routes>

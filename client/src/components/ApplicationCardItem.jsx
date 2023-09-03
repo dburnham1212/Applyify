@@ -1,8 +1,11 @@
+// CSS
+import "../stylesheets/dashboard.css"
+
 function ApplicationCardItem(props) {
 
   return(
     <div  className="col-12 col-sm-6 col-md-6 col-lg-4">
-      <div className="card p-2">
+      <div className="card border-dark p-2">
         <h6>Title</h6>
         <p>{props.position}</p>
         <h6>Company</h6>

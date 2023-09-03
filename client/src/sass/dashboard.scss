@@ -1,0 +1,6 @@
+@use './variables';
+
+.dashboard__card{
+  border-color: variables.$border-color;
+  background-color: variables.$secondary-color;
+}
