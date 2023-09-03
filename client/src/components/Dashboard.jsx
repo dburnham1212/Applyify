@@ -50,7 +50,7 @@ function Dashboard() {
                 <th scope="col">Date</th>
                 <th scope="col">Position</th>
                 <th scope="col">Company</th>
-                <th scope="col">Edit</th>
+                <th scope="col">View</th>
                 <th scope="col">Delete</th>
               </tr>
             </thead>
