@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom";
+
+
 function ApplicationListItem(props) {
 
   return(
@@ -6,7 +9,7 @@ function ApplicationListItem(props) {
       <td>{props.position}</td>
       <td>{props.company}</td>
       <td>
-         <button className="btn btn-primary">View</button>
+         <Link className="btn btn-primary" to='/viewApplication/'>View</Link>
       </td>
       <td>
          <button className="btn btn-danger">Delete</button>

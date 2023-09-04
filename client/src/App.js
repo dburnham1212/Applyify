@@ -10,6 +10,7 @@ import Home from './components/Home';
 import Login from './components/Login';
 import Register from './components/Register';
 import Dashboard from './components/Dashboard';
+import ViewApplication from "./components/ViewApplication";
 
 // Import context provider data
 import { authContext } from './providers/AuthProvider';
@@ -31,7 +32,9 @@ function App() {
           {/* Register Page */}
           <Route path="register" element={authenticated ? <Home /> : <Register />} />
           {/* Dashboard Page */}
-          <Route path="Dashboard" element={authenticated ? <Dashboard /> : <Login />} />
+          <Route path="dashboard" element={authenticated ? <Dashboard /> : <Login />} />
+          {/* View Applications */}
+          <Route path="viewApplication" element={authenticated ? <ViewApplication /> : <Login />} />
         </Routes>
       </BrowserRouter>
     </div>

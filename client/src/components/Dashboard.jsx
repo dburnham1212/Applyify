@@ -26,7 +26,7 @@ function Dashboard() {
   const [applications, setApplications] = useState([]);
 
   useEffect(() => {
-    axios.get(`/applications/${user.id}`)
+    axios.get(`/applications/user/${user.id}`)
       .then((res) => {
         setApplications(res.data.applications)
       })

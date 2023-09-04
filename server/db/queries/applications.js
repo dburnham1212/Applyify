@@ -9,4 +9,14 @@ const getApplicationsByUserId = async (id) => {
   }
 };
 
-module.exports = { getApplicationsByUserId };
+const getApplicationById = async (id) => {
+  try {
+    const data = await db.query('SELECT * FROM applications WHERE id = $1', [id]);
+    return data.rows[0];
+  } catch (error) {
+    throw error;
+  }
+};
+
+
+module.exports = { getApplicationsByUserId, getApplicationById };
