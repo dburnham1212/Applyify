@@ -1,19 +1,3 @@
-import applications from "../mocks/applications";
-import ApplicationListItem from "./ApplicationListItem";
-
-function Dashboard() {
-
-  const applicationTableData = applications.map((application, index) => 
-    <ApplicationListItem 
-      key={index} 
-      company={application.company}
-      foundDate={application.dateJobFound}
-      position={application.position}
-    />
-  )
-
-  return(
-<<<<<<< HEAD
 <div className="overflow-x-auto">
   <table className="table table-xs">
     <thead>
@@ -222,34 +206,3 @@ function Dashboard() {
     </tfoot>
   </table>
 </div>
-=======
-    <div>
-
-      <h1 className="py-5 text-center">My Applications</h1>
-      <div className="col-11 mx-auto">
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th scope="col">Date</th>
-              <th scope="col">Company</th>
-              <th scope="col">Position</th>
-              <th scope="col">Edit</th>
-              <th scope="col">Delete</th>
-            </tr>
-          </thead>
-          <tbody>
-            {applicationTableData}
-          </tbody>
-        </table>
-        <div className="d-flex justify-content-center">
-          <button className="btn btn-primary btn-lg">
-            +
-          </button>
-        </div>
-      </div>
-    </div>
->>>>>>> 451871aefec18ac13e4a02d8bedee1b86bdd6395
-  )
-}
-
-export default Dashboard;
