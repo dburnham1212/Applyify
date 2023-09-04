@@ -9,6 +9,7 @@ const cookieSession = require('cookie-session');
 
 const userRoutes = require('./routes/usersRoutes');
 const authRoutes = require('./routes/authRoutes');
+const applicationRoutes = require('./routes/applicationRoutes');
 
 const app = express();
 app.use(morgan(ENVIRONMENT));
@@ -27,6 +28,7 @@ app.use(cookieSession({
 
 app.use('/users', userRoutes);
 app.use('/auth', authRoutes);
+app.use('/applications', applicationRoutes);
 
 app.listen(PORT, (error) => {
   if(!error){

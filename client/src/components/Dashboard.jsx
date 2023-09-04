@@ -1,11 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState, useContext } from "react";
 
+import axios from 'axios';
 
 
 // COMPONENTS
-import applications from "../mocks/applications";
 import ApplicationCardItem from "./ApplicationCardItem";
 import ApplicationListItem from "./ApplicationListItem";
+
+// CONTEXT PROVIDERS
+import { authContext } from "../providers/AuthProvider";
 
 const viewStates = {
   card: "card",
@@ -13,14 +16,28 @@ const viewStates = {
 }
 
 function Dashboard() {
+  const {
+    user
+  } = useContext(authContext);
 
   const [view, setView] = useState(viewStates.list)
+  const [applications, setApplications] = useState([]);
+
+  useEffect(() => {
+    axios.get(`/applications/${user.id}`)
+      .then((res) => {
+        setApplications(res.data.applications)
+      })
+      .catch((e) => {
+        alert(e);
+      });
+  }, [])
 
   const applicationTableData = applications.map((application, index) => 
     <ApplicationListItem 
       key={index} 
       company={application.company}
-      foundDate={application.dateJobFound}
+      dateApplied={application.date_applied}
       position={application.position}
     />
   )
@@ -29,7 +46,7 @@ function Dashboard() {
     <ApplicationCardItem
       key={index} 
       company={application.company}
-      foundDate={application.dateJobFound}
+      dateApplied={application.date_applied}
       position={application.position}
     />
   )

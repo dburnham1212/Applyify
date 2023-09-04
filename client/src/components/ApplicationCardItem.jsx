@@ -11,7 +11,7 @@ function ApplicationCardItem(props) {
         <h6>Company</h6>
         <p>{props.company}</p>
         <h6>Date Applied</h6>
-        <p>{props.foundDate}</p>
+        <p>{props.dateApplied}</p>
         <div className="d-flex justify-content-between">
           <td>
             <button className="btn btn-primary">View</button>

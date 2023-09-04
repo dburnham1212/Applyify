@@ -2,7 +2,7 @@ function ApplicationListItem(props) {
 
   return(
     <tr>
-      <td>{props.foundDate}</td>
+      <td>{props.dateApplied}</td>
       <td>{props.position}</td>
       <td>{props.company}</td>
       <td>
