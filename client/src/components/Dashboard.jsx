@@ -2,13 +2,15 @@ import { useEffect, useState, useContext } from "react";
 
 import axios from 'axios';
 
-
 // COMPONENTS
 import ApplicationCardItem from "./ApplicationCardItem";
 import ApplicationListItem from "./ApplicationListItem";
 
 // CONTEXT PROVIDERS
 import { authContext } from "../providers/AuthProvider";
+
+// MOMENT
+const moment = require('moment');
 
 const viewStates = {
   card: "card",
@@ -37,7 +39,7 @@ function Dashboard() {
     <ApplicationListItem 
       key={index} 
       company={application.company}
-      dateApplied={application.date_applied}
+      dateApplied={moment(application.date_applied).format('MM/DD/YYYY')}
       position={application.position}
     />
   )
@@ -46,7 +48,7 @@ function Dashboard() {
     <ApplicationCardItem
       key={index} 
       company={application.company}
-      dateApplied={application.date_applied}
+      dateApplied={moment(application.date_applied).format('MM/DD/YYYY')}
       position={application.position}
     />
   )
