@@ -34,7 +34,7 @@ function App() {
           {/* Dashboard Page */}
           <Route path="dashboard" element={authenticated ? <Dashboard /> : <Login />} />
           {/* View Applications */}
-          <Route path="viewApplication" element={authenticated ? <ViewApplication /> : <Login />} />
+          <Route path="viewApplication/:application_id" element={authenticated ? <ViewApplication /> : <Login />} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -10,7 +10,7 @@ const ViewApplication = () => {
   const [application, setApplication] = useState({});
 
   useEffect(() => {
-    axios.get(`/applications/${1}`)
+    axios.get(`/applications/${application_id}`)
     .then((res) => {
       setApplication(res.data.application)
     })
@@ -21,7 +21,9 @@ const ViewApplication = () => {
 
   return (
     <div>
+      
       <div className="col-11 mx-auto text-center pt-5">
+        <h1>View Application</h1>
         <h2>Company</h2>
         <p>{application.company}</p>
         <h2>Title</h2>

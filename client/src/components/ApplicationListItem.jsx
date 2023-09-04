@@ -9,7 +9,7 @@ function ApplicationListItem(props) {
       <td>{props.position}</td>
       <td>{props.company}</td>
       <td>
-         <Link className="btn btn-primary" to='/viewApplication/'>View</Link>
+         <Link className="btn btn-primary" to={`/viewApplication/${props.id}`}>View</Link>
       </td>
       <td>
          <button className="btn btn-danger">Delete</button>

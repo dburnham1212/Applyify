@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 // CSS
 import "../stylesheets/dashboard.css"
 
@@ -14,7 +16,7 @@ function ApplicationCardItem(props) {
         <p>{props.dateApplied}</p>
         <div className="d-flex justify-content-between">
           <td>
-            <button className="btn btn-primary">View</button>
+            <Link className="btn btn-primary" to={`/viewApplication/${props.id}`}>View</Link>
           </td>
           <td>
             <button className="btn btn-danger">Delete</button>

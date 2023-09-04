@@ -1,5 +1,4 @@
 import { useEffect, useState, useContext } from "react";
-
 import axios from 'axios';
 
 // COMPONENTS
@@ -35,18 +34,20 @@ function Dashboard() {
       });
   }, [])
 
-  const applicationTableData = applications.map((application, index) => 
+  const applicationTableData = applications.map((application) => 
     <ApplicationListItem 
-      key={index} 
+      key={application.id}
+      id={application.id}
       company={application.company}
       dateApplied={moment(application.date_applied).format('MM/DD/YYYY')}
       position={application.position}
     />
   )
 
-  const applicationCardData = applications.map((application, index) => 
+  const applicationCardData = applications.map((application) => 
     <ApplicationCardItem
-      key={index} 
+      key={application.id} 
+      id={application.id}
       company={application.company}
       dateApplied={moment(application.date_applied).format('MM/DD/YYYY')}
       position={application.position}
