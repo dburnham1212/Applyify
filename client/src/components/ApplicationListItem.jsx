@@ -11,9 +11,6 @@ function ApplicationListItem(props) {
       <td>
          <Link className="btn btn-primary" to={`/viewApplication/${props.id}`}>View</Link>
       </td>
-      <td>
-         <button className="btn btn-danger">Delete</button>
-      </td>
     </tr>
   )
 }

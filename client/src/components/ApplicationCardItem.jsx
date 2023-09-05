@@ -14,12 +14,9 @@ function ApplicationCardItem(props) {
         <p>{props.company}</p>
         <h6>Date Applied</h6>
         <p>{props.dateApplied}</p>
-        <div className="d-flex justify-content-between">
+        <div className="d-flex justify-content-end">
           <td>
             <Link className="btn btn-primary" to={`/viewApplication/${props.id}`}>View</Link>
-          </td>
-          <td>
-            <button className="btn btn-danger">Delete</button>
           </td>
         </div>
       </div>
