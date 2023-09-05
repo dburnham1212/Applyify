@@ -1,6 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import {useState, useEffect, createContext} from 'react';
 import axios from 'axios';
+// import tailwindConfig from "../../tailwind.config.js";
+// const { themes } = tailwindConfig;
 
 // Create a Context
 export const authContext = createContext();
@@ -95,7 +97,8 @@ export default function AuthProvider(props) {
     setAuthenticated,
     onLogin,
     onRegister,
-    onLogout
+    onLogout,
+    // themes
   };
 
   // We can now use this as a component to wrap anything

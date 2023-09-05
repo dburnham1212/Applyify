@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 
 // CSS
 import "./stylesheets/main.css"
@@ -11,19 +11,57 @@ import Login from './components/Login';
 import Register from './components/Register';
 import Dashboard from './components/Dashboard';
 import ViewApplication from "./components/ViewApplication";
-
+import { themeChange } from "theme-change";
 // Import context provider data
 import { authContext } from './providers/AuthProvider';
 
 function App() {
   const {
-    authenticated
+    authenticated,
+    // themes
   } = useContext(authContext)
+
+  const themes = [
+    "light",
+    "dark",
+    "cupcake",
+    "bumblebee",
+    "emerald",
+    "corporate",
+    "synthwave",
+    "retro",
+    "cyberpunk",
+    "valentine",
+    "halloween",
+    "garden",
+    "forest",
+    "aqua",
+    "lofi",
+    "pastel",
+    "fantasy",
+    "wireframe",
+    "black",
+    "luxury",
+    "dracula",
+    "cmyk",
+    "autumn",
+    "business",
+    "acid",
+    "lemonade",
+    "night",
+    "coffee",
+    "winter",
+  ]
+
+  useEffect(() => {
+    themeChange(false)
+    // 👆 false parameter is required for react project
+  }, [])
 
   return (
     <div className="main__background">
       <BrowserRouter>
-        <NavBar />
+        <NavBar themes={themes}/>
         <Routes>
           {/* Home Page*/}
           <Route path="/" element={<Home/>}/>

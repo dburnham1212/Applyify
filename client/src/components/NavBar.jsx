@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { authContext } from "../providers/AuthProvider";
 
-const NavBar = () => {
+const NavBar = (props) => {
   const {
     authenticated,
     user,
@@ -12,6 +12,13 @@ const NavBar = () => {
   return(
     <nav className="navbar navbar-expand-md navbar-light fixed-top bg-dark py-4">
       <div className="container-fluid">
+      <select className="btn btn-info" >
+        <option value="">Default themes</option>
+        {props.themes.map((value) => (
+          <option key={value.toLowerCase} value={value.toLowerCase}>{value}</option>
+        ))}
+      </select>
+
         <a className="navbar-brand text-light px-4" href="#">Applyify</a>
         <button 
           className="navbar-toggler bg-light mx-4" 
