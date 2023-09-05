@@ -1,0 +1,14 @@
+DROP TABLE IF EXISTS applications CASCADE;
+
+-- CREATE USERS
+CREATE TABLE applications (
+  id SERIAL PRIMARY KEY,
+  user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE NOT NULL,
+  company VARCHAR(50) NOT NULL,
+  position VARCHAR(50) NOT NULL,
+  link VARCHAR(255),
+  research_done BOOLEAN DEFAULT FALSE,
+  linked_in_connection BOOLEAN DEFAULT FALSE,
+  date_applied TIMESTAMP DEFAULT NOW(),
+  date_job_found TIMESTAMP DEFAULT NOW()
+);

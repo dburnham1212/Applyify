@@ -1,6 +1,6 @@
-.test {
-  background-color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+@use './variables';
+
+.main__background {
+  background-color: variables.$base-color;
+  height: 100vh;
 }
