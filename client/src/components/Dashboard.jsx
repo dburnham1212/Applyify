@@ -275,16 +275,15 @@ function Dashboard() {
       {view === viewStates.list && 
         <div className="col-11 mx-auto table-responsive text-nowrap border border-dark">
           <table class="table table-striped border-dark">
-            <thead className="thead-dark">
+            <thead className="thead-dark text-center">
               <tr>
                 <th scope="col">Date</th>
                 <th scope="col">Position</th>
                 <th scope="col">Company</th>
                 <th scope="col">View</th>
-                <th scope="col">Delete</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className="text-center">
               {applicationTableData}
             </tbody>
           </table>

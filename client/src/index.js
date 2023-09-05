@@ -8,6 +8,9 @@ import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.bundle';
 
+// Custom bootstrap styles
+import "./stylesheets/bsCustom.css"
+
 // providers
 import AuthProvider from './providers/AuthProvider';
 
