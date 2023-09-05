@@ -18,5 +18,14 @@ const getApplicationById = async (id) => {
   }
 };
 
+const deleteApplicationById = async (id) => {
+  try {
+    const data = await db.query('DELETE FROM applications WHERE id = $1 RETURNING *', [id]);
+    return data.rows[0];
+  } catch (error) {
+    throw error;
+  }
+}
 
-module.exports = { getApplicationsByUserId, getApplicationById };
+
+module.exports = { getApplicationsByUserId, getApplicationById, deleteApplicationById };

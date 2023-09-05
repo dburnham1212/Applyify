@@ -1,13 +1,20 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 // MOMENT
 const moment = require('moment');
 
+
+
 const ViewApplication = () => {
-  const { application_id } = useParams();
+  
   const [application, setApplication] = useState({});
+
+  // USE PARAMS
+  const { application_id } = useParams();
+  // NAVIGATE
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios.get(`/applications/${application_id}`)
@@ -19,11 +26,23 @@ const ViewApplication = () => {
     })
   }, [])
 
+  const deleteApplication = async () => {
+    await axios.post(`/applications/delete/${application_id}`)
+    .then((res) => {
+      console.log(res)
+    })
+    .catch((e) => {
+      console.log(e)
+    })
+
+    navigate('/dashboard');
+  }
+
   return (
     <div>
       
-      <div className="col-11 mx-auto ">
-        <div className="card my-5">
+      <div className="col-11 mx-auto  py-5">
+        <div className="card mb-5">
           <div className="card-header text-center">
             <h1>View Application</h1>
           </div>
@@ -44,7 +63,7 @@ const ViewApplication = () => {
             <input type="checkbox"></input>
             <div className="d-flex justify-content-end gap-2">
               <button className="btn btn-primary">Edit</button>
-              <button className="btn btn-danger">Delete</button>
+              <button className="btn btn-danger" onClick={()=>deleteApplication()}>Delete</button>
             </div>
           </div>
           
