@@ -42,11 +42,14 @@ const ViewApplication = () => {
   const saveUpdatesToApplication = async () => {
     await axios.post(`/applications/update/${application_id}`, 
     { 
-      company
+      company,
+      position,
+      link,
     }
     )
     .then((res) => {
       console.log(res)
+      setEditMode(false);
     })
     .catch((e) => {
       console.log(e)
@@ -143,7 +146,7 @@ const ViewApplication = () => {
             }
             <div className="d-flex justify-content-end gap-2">
               {editMode ? 
-                <button className="btn btn-primary" onClick={()=>setEditMode(false)}>Save</button>
+                <button className="btn btn-primary" onClick={()=>saveUpdatesToApplication()}>Save</button>
               :
                 <button className="btn btn-primary" onClick={()=>setEditMode(true)}>Edit</button>
               }

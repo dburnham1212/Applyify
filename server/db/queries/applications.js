@@ -27,5 +27,17 @@ const deleteApplicationById = async (id) => {
   }
 }
 
+const updateApplicationById = async (application, id) => {
+  const {company, position, link} = application;
+  try {
+    const data = await db.query(
+      'UPDATE applications SET company = $1, position = $2, link = $3 WHERE id = $4 RETURNING *', 
+    [company, position, link, id]);
+    return data.rows[0];
+  } catch (error) {
+    throw error;
+  }
+}
 
-module.exports = { getApplicationsByUserId, getApplicationById, deleteApplicationById };
+
+module.exports = { getApplicationsByUserId, getApplicationById, deleteApplicationById, updateApplicationById };
