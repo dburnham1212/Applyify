@@ -11,31 +11,19 @@ const NavBar = (props) => {
   } = useContext(authContext);
 
   return(
-    <nav className="navbar navbar-expand-md navbar-light fixed-top bg-secondary py-4">
-      <div className="container-fluid">
-      <select className="bg-indigo-100 px-2 py-3 text-gray-500"
-            data-choose-theme >
-        <option value="">Default themes</option>
-        {props.themes.map((value) => (
-          <option key={value.toLowerCase()} value={value.toLowerCase()}>{value}</option>
-        ))}
-      </select>
+    <nav className="fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600 bg-secondary py-4">
+      <div className="flex justify-between items-center px-4">
+        <div className="flex justify-between items-center">
+          <select className="bg-indigo-100 px-2 py-3 text-gray-500"
+                data-choose-theme >
+            <option value="">Default themes</option>
+            {props.themes.map((value) => (
+              <option key={value.toLowerCase()} value={value.toLowerCase()}>{value}</option>
+            ))}
+          </select>
 
-        <a className="navbar-brand text-light px-4" href="#">Applyify</a>
-        <button 
-          className="navbar-toggler bg-light mx-4" 
-          type="button" 
-          data-bs-toggle="collapse" 
-          data-bs-target="#navbarNav" 
-          aria-controls="navbarNav" 
-          aria-expanded="false" 
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-
-        <div className="collapse navbar-collapse mx-4" id="navbarNav">
-          <ul className="navbar-nav me-auto">
+          <a className="text-3xl px-6" href="#">Applyify</a>
+          <ul className="flex justify-between items-center gap-3">
             <li className="nav-item active">
               <Link className="nav-link text-light" to="/">Home</Link>
             </li>
@@ -43,8 +31,12 @@ const NavBar = (props) => {
                 <Link className="nav-link text-light" to="/dashboard">Dashboard</Link>
              </li>
           </ul>
+        </div>
+
+        <div className="flex justify-between items-center" id="navbarNav">
+          
           {authenticated ? 
-          <ul className="navbar-nav d-flex justify-content-end">
+          <ul className="flex justify-between items-center gap-3">
             <li className="nav-item">
               <span className="nav-link text-light"> Logged in as: {user.user_name}</span>
             </li>
@@ -53,7 +45,7 @@ const NavBar = (props) => {
             </li>
           </ul>
           :
-          <ul className="navbar-nav d-flex justify-content-end">
+          <ul className="flex justify-between items-center gap-3 mx-2">
             <li className="nav-item">
               <Link className="nav-link text-light" to="/login">Login</Link>
             </li>

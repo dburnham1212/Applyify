@@ -6,7 +6,7 @@ import "../stylesheets/dashboard.css"
 function ApplicationCardItem(props) {
 
   return(
-    <div  className="col-12 col-sm-6 col-md-6 col-lg-4">
+    <div  className="max-w-sm rounded overflow-hidden shadow-lg bg-secondary">
       <div className="card border-dark bg-light p-2">
         <h6>Title</h6>
         <p>{props.position}</p>
@@ -14,7 +14,7 @@ function ApplicationCardItem(props) {
         <p>{props.company}</p>
         <h6>Date Applied</h6>
         <p>{props.dateApplied}</p>
-        <div className="d-flex justify-content-end">
+        <div className="flex justify-end">
           <td>
             <Link className="btn btn-primary" to={`/viewApplication/${props.id}`}>View</Link>
           </td>
