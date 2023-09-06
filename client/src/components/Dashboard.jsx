@@ -58,14 +58,14 @@ function Dashboard() {
     <div>
       <h1 className="pt-5 text-center text-3xl">My Applications</h1>
       <div className="w-11/12 my-1 mx-auto flex gap-2">
-        <button className="btn btn-secondary my-1" onClick={() => setView(viewStates.list)}>List view</button>
-        <button className="btn btn-secondary my-1" onClick={() => setView(viewStates.card)}>Card view</button>
+        <button className="btn btn-dark my-1" onClick={() => setView(viewStates.list)}>List view</button>
+        <button className="btn btn-dark my-1" onClick={() => setView(viewStates.card)}>Card view</button>
       </div>
       {/* List view */}
       {view === viewStates.list && 
         <div className="w-11/12 mx-auto table-responsive text-nowrap border border-dark">
           <table class="table table-striped border-dark table-auto">
-            <thead className="thead-dark text-center">
+            <thead className="text-center bg-secondary">
               <tr>
                 <th scope="col">Date</th>
                 <th scope="col">Position</th>
@@ -81,14 +81,12 @@ function Dashboard() {
       }
       {/* Card view */}
       {view === viewStates.card && 
-        <div className="col-11 mx-auto containter-fluid ">
-          <div className="row g-2">
-            {applicationCardData}
-          </div>
+        <div className="w-11/12 mx-auto flex gap-2 ">
+          {applicationCardData}
         </div>
       }
       <div className="flex justify-center pt-3">
-        <button className="btn btn-secondary btn-lg">
+        <button className="btn btn-dark btn-lg">
           +
         </button>
       </div>
