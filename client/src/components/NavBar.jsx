@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { authContext } from "../providers/AuthProvider";
 
 const NavBar = (props) => {
+  
   const {
     authenticated,
     user,
@@ -12,7 +13,8 @@ const NavBar = (props) => {
   return(
     <nav className="navbar navbar-expand-md navbar-light fixed-top bg-dark py-4">
       <div className="container-fluid">
-      <select className="btn btn-info" >
+      <select className="bg-indigo-100 px-2 py-3 text-gray-500"
+            data-choose-theme >
         <option value="">Default themes</option>
         {props.themes.map((value) => (
           <option key={value.toLowerCase()} value={value.toLowerCase()}>{value}</option>
