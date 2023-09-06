@@ -71,96 +71,96 @@ const ViewApplication = () => {
   return (
     <div>
       
-      <div className="col-11 mx-auto  py-5">
-        <div className="card mb-5">
-          <div className="card-header text-center">
+      <div className="w-11/12 mx-auto py-5">
+        <div className="rounded overflow-hidden shadow-lg bg-secondary p-2 mx-auto">
+          <div className="font-bold text-3xl text-center">
             <h1>View Application</h1>
           </div>
           <div className="card-body">
             {editMode ? 
               <div>
                 <div className="form-group mb-1">
-                  <h5>Company</h5>
+                  <h5 className="font-bold">Company</h5>
                   <input 
-                    className="form-control" 
+                    className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-primary" 
                     value={company} 
                     onChange={(e) => setCompany(e.target.value)}
                   />
                 </div>
                 <div className="form-group mb-1">
-                  <h5>Title</h5>
+                  <h5 className="font-bold">Title</h5>
                   <input 
-                    className="form-control" 
+                    className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-primary" 
                     value={position} 
                     onChange={(e) => setPosition(e.target.value)}
                   />
                 </div>
                 <div className="form-group mb-1">
-                  <h5>Job Posting Link</h5>
+                  <h5 className="font-bold">Job Posting Link</h5>
                   <input 
-                    className="form-control" 
+                    className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-primary" 
                     value={link} 
                     onChange={(e) => setLink(e.target.value)}
                   />
                 </div>
                 <div className="form-group mb-1">
-                  <h5>Date Found</h5>
+                  <h5 className="font-bold">Date Found</h5>
                   <input 
                     type="date"
-                    className="form-control" 
+                    className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-primary" 
                     value={moment(dateFound).format('YYYY-MM-DD')}
                     onChange={(e) => setDateFound(e.target.value)}
                   />
                 </div>
                 <div className="form-group mb-1">
-                  <h5>Date Applied</h5>
+                  <h5 className="font-bold">Date Applied</h5>
                   <input 
                     type="date"
-                    className="form-control" 
+                    className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-primary" 
                     value={moment(dateApplied).format('YYYY-MM-DD')}
                     onChange={(e) => setDateApplied(e.target.value)}
                   />
                 </div>
-                <h5>Research Done</h5>
+                <h5 className="font-bold">Research Done</h5>
                 <input type="checkbox"></input>
-                <h5>LinkedIn Connection</h5>
+                <h5 className="font-bold">LinkedIn Connection</h5>
                 <input type="checkbox"></input>
               </div>
             :
               <div>
-                <h5>Company</h5>
-                <p>{company}</p>
-                <h5>Title</h5>
-                <p>{position}</p>
-                <h5>Job Posting Link</h5>
-                <p>{link}</p>
-                <h5>Date Found</h5>
-                <p>{moment(dateFound).format('MM/DD/YYYY')}</p>
-                <h5>Date Applied</h5>
-                <p>{moment(dateApplied).format('MM/DD/YYYY')}</p>
-                <h5>Research Done</h5>
-                <p>{application.research_done ? "Yes" : "No"}</p>
-                <h5>LinkedIn Connection</h5>
-                <p>{application.linked_in_connection ? "Yes" : "No"}</p>
+                <h5 className="font-bold">Company</h5>
+                <p className="py-2">{company}</p>
+                <h5 className="font-bold">Title</h5>
+                <p className="py-2">{position}</p>
+                <h5 className="font-bold">Job Posting Link</h5>
+                <p className="py-2">{link}</p>
+                <h5 className="font-bold">Date Found</h5>
+                <p className="py-2">{moment(dateFound).format('MM/DD/YYYY')}</p>
+                <h5 className="font-bold">Date Applied</h5>
+                <p className="py-2">{moment(dateApplied).format('MM/DD/YYYY')}</p>
+                <h5 className="font-bold">Research Done</h5>
+                <p className="py-2">{application.research_done ? "Yes" : "No"}</p>
+                <h5 className="font-bold">LinkedIn Connection</h5>
+                <p className="py-2">{application.linked_in_connection ? "Yes" : "No"}</p>
               </div>
             }
-            <div className="d-flex justify-content-end gap-2">
+            <div className="flex justify-end gap-2">
               {editMode ? 
-                <button className="btn btn-primary" onClick={()=>saveUpdatesToApplication()}>Save</button>
+                <button className="btn btn-dark" onClick={()=>saveUpdatesToApplication()}>Save</button>
               :
-                <button className="btn btn-primary" onClick={()=>setEditMode(true)}>Edit</button>
+                <button className="btn btn-dark" onClick={()=>setEditMode(true)}>Edit</button>
               }
-              <button className="btn btn-danger" onClick={()=>deleteApplication()}>Delete</button>
+              <button className="btn btn-warning" onClick={()=>deleteApplication()}>Delete</button>
             </div>
           </div>
           
         </div>
-        <div className="card">
-          <div className="card-header">
-            <h1>Notes</h1>
+        <div className="rounded overflow-hidden shadow-lg bg-secondary p-2 mx-auto my-2">
+          <div className="text-center">
+            <h1 className="font-bold text-3xl">Notes</h1>
           </div>
           <div className="card-body">
-            <h6>New Note</h6>
+            <h6 className="font-bold">New Note</h6>
             <textarea class="form-control"></textarea>
           </div>
         </div>

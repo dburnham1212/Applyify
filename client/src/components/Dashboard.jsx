@@ -56,16 +56,16 @@ function Dashboard() {
 
   return(
     <div>
-      <h1 className="pt-5 text-center">My Applications</h1>
-      <div className="col-11 my-1 mx-auto d-flex gap-2">
-        <button className="btn btn-primary my-1" onClick={() => setView(viewStates.list)}>List view</button>
-        <button className="btn btn-primary my-1" onClick={() => setView(viewStates.card)}>Card view</button>
+      <h1 className="pt-5 text-center text-3xl">My Applications</h1>
+      <div className="w-11/12 my-1 mx-auto flex gap-2">
+        <button className="btn btn-dark my-1" onClick={() => setView(viewStates.list)}>List view</button>
+        <button className="btn btn-dark my-1" onClick={() => setView(viewStates.card)}>Card view</button>
       </div>
       {/* List view */}
       {view === viewStates.list && 
-        <div className="col-11 mx-auto table-responsive text-nowrap border border-dark">
-          <table class="table table-striped border-dark">
-            <thead className="thead-dark text-center">
+        <div className="w-11/12 mx-auto table-responsive text-nowrap border border-dark">
+          <table class="table table-striped border-dark table-auto">
+            <thead className="text-center bg-secondary">
               <tr>
                 <th scope="col">Date</th>
                 <th scope="col">Position</th>
@@ -81,14 +81,12 @@ function Dashboard() {
       }
       {/* Card view */}
       {view === viewStates.card && 
-        <div className="col-11 mx-auto containter-fluid ">
-          <div className="row g-2">
-            {applicationCardData}
-          </div>
+        <div className="w-11/12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 mx-auto gap-2 ">
+          {applicationCardData}
         </div>
       }
-      <div className="d-flex justify-content-center pt-3">
-        <button className="btn btn-primary btn-lg">
+      <div className="flex justify-center pt-3">
+        <button className="btn btn-dark btn-lg">
           +
         </button>
       </div>
