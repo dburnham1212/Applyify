@@ -14,8 +14,7 @@ const NavBar = (props) => {
     <nav className="fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600 bg-secondary py-4">
       <div className="flex justify-between items-center px-4">
         <div className="flex justify-between items-center">
-          
-
+        
           <a className="font-bold text-3xl px-6" href="#">Applyify</a>
           <ul className="flex justify-between items-center gap-3">
             <li className="nav-item active">

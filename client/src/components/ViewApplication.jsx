@@ -19,6 +19,9 @@ const ViewApplication = () => {
   const [dateFound, setDateFound] = useState("");
   const [dateApplied, setDateApplied] = useState("");
 
+  // note data
+  const [notes, setNotes] = useState([]);
+
   // USE PARAMS
   const { application_id } = useParams();
   // NAVIGATE
@@ -36,6 +39,15 @@ const ViewApplication = () => {
     })
     .catch((e) => {
       console.log(e);
+    })
+
+    axios.get(`/notes/application/${application_id}`)
+    .then((res) => {
+      console.log(res);
+      setNotes(res.data.notes)
+    })
+    .catch((e) => {
+      console.log(e)
     })
   }, [])
 
@@ -60,13 +72,23 @@ const ViewApplication = () => {
     await axios.post(`/applications/delete/${application_id}`)
     .then((res) => {
       console.log(res)
+      navigate('/dashboard');
     })
     .catch((e) => {
       console.log(e)
     })
 
-    navigate('/dashboard');
   }
+
+  // Set up notes 
+  const viewNotes = notes.map((note) => {
+    return( 
+      <div key={note.id} className="py-3">
+        <p className="font-bold">{moment(note.date_created).format('MM/DD/YYYY')}</p>
+        <p>{note.body}</p>
+      </div>
+    );
+  })
 
   return (
     <div>
@@ -162,7 +184,11 @@ const ViewApplication = () => {
           <div className="card-body">
             <h6 className="font-bold">New Note</h6>
             <textarea class="form-control"></textarea>
+            <div>
+              {viewNotes}
+            </div>
           </div>
+          
         </div>
       </div>
     </div>
