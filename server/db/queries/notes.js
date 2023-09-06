@@ -9,5 +9,14 @@ const getNotesByApplicationId = async (id) => {
   }
 };
 
+const createNote = async (id, body) => {
+  try {
+    const data = await db.query('INSERT INTO notes (application_id, body) VALUES ($1, $2) RETURNING *', [id, body]);
+    return data.rows;
+  } catch (error) {
+    throw error;
+  }
+}
 
-module.exports = { getNotesByApplicationId };
+
+module.exports = { getNotesByApplicationId, createNote };

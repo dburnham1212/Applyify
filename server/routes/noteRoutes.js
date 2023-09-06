@@ -12,6 +12,24 @@ router.get("/application/:id", (req, res) => {
         error: `error getting user by id: ${e.message}`,
       });
     });
+
+    
 });
+
+router.post("/application/:id", (req, res) => {
+  notes
+    .createNote(req.params.id, req.body.body)
+    .then((notes) => {
+      res.json({ notes });
+    })
+    .catch((e) => {
+      res.status(500).json({
+        error: `error getting user by id: ${e.message}`,
+      });
+    });
+
+    
+});
+
 
 module.exports = router;

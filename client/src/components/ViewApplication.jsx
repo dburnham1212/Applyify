@@ -22,6 +22,8 @@ const ViewApplication = () => {
   // note data
   const [notes, setNotes] = useState([]);
 
+  const [newNote, setNewNote] = useState("")
+
   // USE PARAMS
   const { application_id } = useParams();
   // NAVIGATE
@@ -51,14 +53,14 @@ const ViewApplication = () => {
     })
   }, [])
 
+  // APPLICATION FUNCTIONS
   const saveUpdatesToApplication = async () => {
     await axios.post(`/applications/update/${application_id}`, 
     { 
       company,
       position,
       link,
-    }
-    )
+    })
     .then((res) => {
       console.log(res)
       setEditMode(false);
@@ -78,6 +80,20 @@ const ViewApplication = () => {
       console.log(e)
     })
 
+  }
+
+  // NOTE FUNCTIONS
+  const createNote = async () => {
+    await axios.post(`/notes/application/${application_id}`, 
+    {
+      body: newNote
+    })
+    .then((res) => {
+      console.log(res)
+    })
+    .catch((e) => {
+      console.log(e)
+    })
   }
 
   // Set up notes 
@@ -183,7 +199,12 @@ const ViewApplication = () => {
           </div>
           <div className="card-body">
             <h6 className="font-bold">New Note</h6>
-            <textarea class="form-control"></textarea>
+            <textarea class="form-control" placeholder="note" onChange={(e) => setNewNote(e.target.value)}></textarea>
+            <div className="flex justify-end">
+              <button className="btn btn-dark" onClick={() => createNote()}>
+                Add Note
+              </button>
+            </div>
             <div>
               {viewNotes}
             </div>
