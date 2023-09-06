@@ -5,11 +5,11 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 // import bootstrap
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/js/bootstrap.bundle';
+// import 'bootstrap/dist/css/bootstrap.css';
+// import 'bootstrap/dist/js/bootstrap.bundle';
 
 // Custom bootstrap styles
-import "./stylesheets/bsCustom.css"
+// import "./stylesheets/bsCustom.css"
 
 // providers
 import AuthProvider from './providers/AuthProvider';

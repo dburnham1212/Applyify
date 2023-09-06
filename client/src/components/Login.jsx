@@ -17,11 +17,12 @@ const Login = () => {
         <form className="px-3">
           <div className="form-group pt-4">
             <label className="form-label">Username</label>
-            <input className="form-control" type="text" onChange={(e) => setUserName(e.target.value)} placeholder="username"></input>
+            <input className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" type="text" onChange={(e) => setUserName(e.target.value)} placeholder="username"></input>
+            
           </div>
           <div className="form-group pt-4">
             <label className="form-label">Password</label>
-            <input className="form-control" type="password" onChange={(e) => setPassword(e.target.value)} placeholder="password"></input>
+            <input className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" type="password" onChange={(e) => setPassword(e.target.value)} placeholder="password"></input>
           </div>
           <div className="d-flex justify-content-end mx-2 my-4">
             <button className="btn btn-dark" onClick={(e) => onLogin(e)}>Login</button>

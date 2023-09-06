@@ -15,7 +15,7 @@ const NavBar = (props) => {
       <select className="btn btn-info" >
         <option value="">Default themes</option>
         {props.themes.map((value) => (
-          <option key={value.toLowerCase} value={value.toLowerCase}>{value}</option>
+          <option key={value.toLowerCase()} value={value.toLowerCase()}>{value}</option>
         ))}
       </select>
 
