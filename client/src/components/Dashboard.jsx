@@ -58,7 +58,7 @@ function Dashboard() {
 
   return(
     <div>
-      <h1 className="pt-5 text-center text-3xl font-bold">My Applications</h1>
+      <h1 className="py-5 text-center text-3xl font-bold">My Applications</h1>
       <div className="w-11/12 my-1 mx-auto flex gap-2">
         <button className="btn btn-dark my-1" onClick={() => setView(viewStates.list)}>List view</button>
         <button className="btn btn-dark my-1" onClick={() => setView(viewStates.card)}>Card view</button>
@@ -95,6 +95,7 @@ function Dashboard() {
           +
         </button>
       </div>
+      {/* New Application Modal */}
       {viewNewAppModal && <CreateApplicationModal setView={setViewNewAppModal}/>}
     </div>
   )

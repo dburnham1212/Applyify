@@ -39,5 +39,16 @@ const updateApplicationById = async (application, id) => {
   }
 }
 
+const createApplication = async (application, id) => {
+  const {company, position, link} = application;
+  try {
+    const data = await db.query(
+      'INSERT INTO applications (user_id, company, position, link) VALUES ($1, $2, $3, $4) RETURNING *', 
+    [id, company, position, link]);
+    return data.rows[0];
+  } catch (error) {
+    throw error;
+  }
+}
 
-module.exports = { getApplicationsByUserId, getApplicationById, deleteApplicationById, updateApplicationById };
+module.exports = { getApplicationsByUserId, getApplicationById, deleteApplicationById, updateApplicationById, createApplication };
