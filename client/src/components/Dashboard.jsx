@@ -41,7 +41,7 @@ function Dashboard() {
       key={application.id}
       id={application.id}
       company={application.company}
-      dateApplied={moment(application.date_applied).format('MM/DD/YYYY')}
+      dateApplied={moment(application.date_job_found).format('MM/DD/YYYY')}
       position={application.position}
     />
   )
@@ -51,7 +51,7 @@ function Dashboard() {
       key={application.id} 
       id={application.id}
       company={application.company}
-      dateApplied={moment(application.date_applied).format('MM/DD/YYYY')}
+      dateApplied={moment(application.date_job_found).format('MM/DD/YYYY')}
       position={application.position}
     />
   )
@@ -69,7 +69,7 @@ function Dashboard() {
           <table class="table table-striped border-dark table-auto">
             <thead className="text-center bg-secondary">
               <tr>
-                <th scope="col">Date</th>
+                <th scope="col">Date Found</th>
                 <th scope="col">Position</th>
                 <th scope="col">Company</th>
                 <th scope="col">View</th>

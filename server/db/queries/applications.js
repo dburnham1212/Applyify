@@ -2,7 +2,7 @@ const db = require('../../configs/db.config');
 
 const getApplicationsByUserId = async (id) => {
   try {
-    const data = await db.query('SELECT * FROM applications WHERE user_id = $1', [id]);
+    const data = await db.query('SELECT * FROM applications WHERE user_id = $1 ORDER BY date_job_found DESC', [id]);
     return data.rows;
   } catch (error) {
     throw error;
@@ -40,11 +40,11 @@ const updateApplicationById = async (application, id) => {
 }
 
 const createApplication = async (application, id) => {
-  const {company, position, link} = application;
+  const {company, position, link, dateFound, dateApplied} = application;
   try {
     const data = await db.query(
-      'INSERT INTO applications (user_id, company, position, link) VALUES ($1, $2, $3, $4) RETURNING *', 
-    [id, company, position, link]);
+      'INSERT INTO applications (user_id, company, position, link, date_job_found, date_applied) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *', 
+    [id, company, position, link, dateFound, dateApplied]);
     return data.rows[0];
   } catch (error) {
     throw error;

@@ -7,11 +7,11 @@ function ApplicationCardItem(props) {
 
   return(
     <div className="w-full rounded overflow-hidden shadow-lg bg-secondary border-2 p-2">
-      <h6>Title</h6>
+      <h6 className="font-bold">Title</h6>
       <p>{props.position}</p>
-      <h6>Company</h6>
+      <h6 className="font-bold">Company</h6>
       <p>{props.company}</p>
-      <h6>Date Applied</h6>
+      <h6 className="font-bold">Date Found</h6>
       <p>{props.dateApplied}</p>
       <div className="flex justify-end">
         <td>
