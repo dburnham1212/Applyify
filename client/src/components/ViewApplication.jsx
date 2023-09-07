@@ -111,7 +111,7 @@ const ViewApplication = () => {
     <div>
       
       <div className="w-11/12 mx-auto py-5">
-        <div className="rounded overflow-hidden shadow-lg bg-secondary p-2 mx-auto">
+        <div className="rounded overflow-hidden shadow-lg bg-secondary p-2 mx-auto border-2">
           <div className="font-bold text-3xl text-center">
             <h1>View Application</h1>
           </div>
@@ -194,7 +194,7 @@ const ViewApplication = () => {
           </div>
           
         </div>
-        <div className="rounded overflow-hidden shadow-lg bg-secondary p-2 mx-auto my-2">
+        <div className="rounded overflow-hidden shadow-lg bg-secondary p-2 mx-auto my-2 border-2">
           <div className="text-center">
             <h1 className="font-bold text-3xl">Notes</h1>
           </div>

@@ -6,7 +6,7 @@ import "../stylesheets/dashboard.css"
 function ApplicationCardItem(props) {
 
   return(
-    <div className="w-full rounded overflow-hidden shadow-lg bg-secondary p-2">
+    <div className="w-full rounded overflow-hidden shadow-lg bg-secondary border-2 p-2">
       <h6>Title</h6>
       <p>{props.position}</p>
       <h6>Company</h6>
