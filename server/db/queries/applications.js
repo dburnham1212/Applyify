@@ -28,11 +28,11 @@ const deleteApplicationById = async (id) => {
 }
 
 const updateApplicationById = async (application, id) => {
-  const {company, position, link} = application;
+  const {company, position, link, dateFound, dateApplied, researchDone, linkedInConn} = application;
   try {
     const data = await db.query(
-      'UPDATE applications SET company = $1, position = $2, link = $3 WHERE id = $4 RETURNING *', 
-    [company, position, link, id]);
+      'UPDATE applications SET company = $2, position = $3, link = $4, date_job_found = $5, date_applied = $6, research_done = $7, linked_in_connection = $8 WHERE id = $1 RETURNING *', 
+    [id, company, position, link, dateFound, dateApplied, researchDone, linkedInConn]);
     return data.rows[0];
   } catch (error) {
     throw error;
@@ -40,6 +40,7 @@ const updateApplicationById = async (application, id) => {
 }
 
 const createApplication = async (application, id) => {
+  
   const {company, position, link, dateFound, dateApplied, researchDone, linkedInConn} = application;
   try {
     const data = await db.query(

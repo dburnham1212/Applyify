@@ -18,6 +18,8 @@ const ViewApplication = () => {
   const [link, setLink] = useState("");
   const [dateFound, setDateFound] = useState("");
   const [dateApplied, setDateApplied] = useState("");
+  const [researchDone, setResearchDone] = useState(false);
+  const [linkedInConn, setLinkedInConn] = useState(false);
 
   // note data
   const [notes, setNotes] = useState([]);
@@ -38,6 +40,8 @@ const ViewApplication = () => {
       setLink(res.data.application.link);
       setDateFound(res.data.application.date_job_found);
       setDateApplied(res.data.application.date_applied);
+      setResearchDone(res.data.application.research_done)
+      setLinkedInConn(res.data.application.linked_in_connection)
     })
     .catch((e) => {
       console.log(e);
@@ -60,6 +64,10 @@ const ViewApplication = () => {
       company,
       position,
       link,
+      dateFound,
+      dateApplied,
+      researchDone,
+      linkedInConn
     })
     .then((res) => {
       console.log(res)
@@ -161,9 +169,17 @@ const ViewApplication = () => {
                   />
                 </div>
                 <h5 className="font-bold">Research Done</h5>
-                <input type="checkbox"></input>
+                <input 
+                  type="checkbox" 
+                  checked={researchDone}
+                  onChange={(e) => (setResearchDone(e.target.checked))}
+                />
                 <h5 className="font-bold">LinkedIn Connection</h5>
-                <input type="checkbox"></input>
+                <input 
+                  type="checkbox" 
+                  checked={linkedInConn}
+                  onChange={(e) => (setLinkedInConn(e.target.checked))}
+                />
               </div>
             :
               <div>
@@ -178,9 +194,9 @@ const ViewApplication = () => {
                 <h5 className="font-bold">Date Applied</h5>
                 <p className="py-2">{moment(dateApplied).format('MM/DD/YYYY')}</p>
                 <h5 className="font-bold">Research Done</h5>
-                <p className="py-2">{application.research_done ? "Yes" : "No"}</p>
+                <p className="py-2">{researchDone ? "Yes" : "No"}</p>
                 <h5 className="font-bold">LinkedIn Connection</h5>
-                <p className="py-2">{application.linked_in_connection ? "Yes" : "No"}</p>
+                <p className="py-2">{linkedInConn ? "Yes" : "No"}</p>
               </div>
             }
             <div className="flex justify-end gap-2">
