@@ -90,6 +90,7 @@ const ViewApplication = () => {
     })
     .then((res) => {
       console.log(res)
+      setNotes([res.data.note, ...notes]);
     })
     .catch((e) => {
       console.log(e)

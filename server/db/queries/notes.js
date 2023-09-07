@@ -2,7 +2,7 @@ const db = require('../../configs/db.config');
 
 const getNotesByApplicationId = async (id) => {
   try {
-    const data = await db.query('SELECT * FROM notes WHERE application_id = $1', [id]);
+    const data = await db.query('SELECT * FROM notes WHERE application_id = $1 ORDER BY date_created DESC', [id]);
     return data.rows;
   } catch (error) {
     throw error;
@@ -12,7 +12,7 @@ const getNotesByApplicationId = async (id) => {
 const createNote = async (id, body) => {
   try {
     const data = await db.query('INSERT INTO notes (application_id, body) VALUES ($1, $2) RETURNING *', [id, body]);
-    return data.rows;
+    return data.rows[0];
   } catch (error) {
     throw error;
   }

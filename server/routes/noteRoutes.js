@@ -19,8 +19,8 @@ router.get("/application/:id", (req, res) => {
 router.post("/application/:id", (req, res) => {
   notes
     .createNote(req.params.id, req.body.body)
-    .then((notes) => {
-      res.json({ notes });
+    .then((note) => {
+      res.json({ note });
     })
     .catch((e) => {
       res.status(500).json({
