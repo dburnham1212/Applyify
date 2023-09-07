@@ -15,15 +15,20 @@ const CreateApplicationModal = (props) => {
   const [link, setLink] = useState("");
   const [dateFound, setDateFound] = useState(null);
   const [dateApplied, setDateApplied] = useState(null);
+  const [researchDone, setResearchDone] = useState(false);
+  const [linkedInConn, setLinkedInConn] = useState(false);
 
   const createApplication = () => {
+    
     axios.post(`/applications/create/user/${user.id}`,
     {
       company,
       position,
       link,
       dateFound,
-      dateApplied
+      dateApplied,
+      researchDone,
+      linkedInConn
     })
     .then((res) => {
       console.log(res.data)
@@ -73,9 +78,15 @@ const CreateApplicationModal = (props) => {
             onChange={(e) => (setDateApplied(e.target.value))}
           />
           <h1 className="font-bold">Research Done</h1>
-          <input type="checkbox"/>
+          <input 
+            type="checkbox"
+            onChange={(e) => (setResearchDone(e.target.checked))}
+          />
           <h1 className="font-bold">LinkedIn Connection</h1>
-          <input type="checkbox"/>
+          <input 
+            type="checkbox"
+            onChange={(e) => (setLinkedInConn(e.target.checked))}
+          />
           <div className="flex justify-end gap-2">
             <button className="btn btn-dark" onClick={() => createApplication()}>Create</button>
             <button className="btn btn-warning" onClick={() => props.setView(false)}>Cancel</button>

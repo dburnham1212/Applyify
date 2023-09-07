@@ -7,8 +7,8 @@ CREATE TABLE applications (
   company VARCHAR(50) NOT NULL,
   position VARCHAR(50) NOT NULL,
   link VARCHAR(255) NOT NULL,
-  research_done BOOLEAN DEFAULT FALSE,
-  linked_in_connection BOOLEAN DEFAULT FALSE,
   date_applied TIMESTAMP DEFAULT NOW(),
-  date_job_found TIMESTAMP DEFAULT NOW()
+  date_job_found TIMESTAMP DEFAULT NOW(),
+  research_done BOOLEAN DEFAULT FALSE,
+  linked_in_connection BOOLEAN DEFAULT FALSE
 );

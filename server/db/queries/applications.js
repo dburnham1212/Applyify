@@ -40,11 +40,11 @@ const updateApplicationById = async (application, id) => {
 }
 
 const createApplication = async (application, id) => {
-  const {company, position, link, dateFound, dateApplied} = application;
+  const {company, position, link, dateFound, dateApplied, researchDone, linkedInConn} = application;
   try {
     const data = await db.query(
-      'INSERT INTO applications (user_id, company, position, link, date_job_found, date_applied) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *', 
-    [id, company, position, link, dateFound, dateApplied]);
+      'INSERT INTO applications (user_id, company, position, link, date_job_found, date_applied, research_done, linked_in_connection) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *', 
+    [id, company, position, link, dateFound, dateApplied, researchDone, linkedInConn]);
     return data.rows[0];
   } catch (error) {
     throw error;
