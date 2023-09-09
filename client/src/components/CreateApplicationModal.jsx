@@ -18,24 +18,29 @@ const CreateApplicationModal = (props) => {
   const [researchDone, setResearchDone] = useState(false);
   const [linkedInConn, setLinkedInConn] = useState(false);
 
+  const [missingRequired, setMissingRequired] = useState(false)
+
   const createApplication = () => {
-    
-    axios.post(`/applications/create/user/${user.id}`,
-    {
-      company,
-      position,
-      link,
-      dateFound,
-      dateApplied,
-      researchDone,
-      linkedInConn
-    })
-    .then((res) => {
-      console.log(res.data)
-      props.setView(false);
-    }).catch((e) => {
-      console.log(e)
-    })
+    if(company && position && link && dateFound) {
+      axios.post(`/applications/create/user/${user.id}`,
+      {
+        company,
+        position,
+        link,
+        dateFound,
+        dateApplied,
+        researchDone,
+        linkedInConn
+      })
+      .then((res) => {
+        console.log(res.data)
+        props.setView(false);
+      }).catch((e) => {
+        console.log(e)
+      })
+    } else {
+      setMissingRequired(true);
+    }
   }
 
   return (
@@ -49,25 +54,33 @@ const CreateApplicationModal = (props) => {
         <div className="card-body">
           <h1 className="font-bold">Company</h1>
           <input 
-            className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-primary" 
+            className={"bg-gray-200 appearance-none border-2 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-primary " 
+              + ((missingRequired && !company) ? "border-red-700" : "border-gray-200")
+            }
             value={company}
             onChange={(e) => setCompany(e.target.value)}
           />
           <h1 className="font-bold">Position</h1>
           <input 
-            className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-primary" 
+            className={"bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-primary " 
+              + ((missingRequired && !position) ? "border-red-700" : "border-gray-200")
+            }
             value={position}
             onChange={(e) => setPosition(e.target.value)}
           />
           <h1 className="font-bold">Link</h1>
           <input 
-            className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-primary" 
+            className={"bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-primary " 
+              + ((missingRequired && !link) ? "border-red-700" : "border-gray-200")
+            } 
             value={link}
             onChange={(e) => setLink(e.target.value)}
           />
           <h1 className="font-bold">Date Found</h1>
           <input 
-            className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-primary" 
+            className={"bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-primary " 
+              + ((missingRequired && !dateFound) ? "border-red-700" : "border-gray-200")
+            } 
             type="date"
             onChange={(e) => (setDateFound(e.target.value))}
           />
@@ -87,6 +100,9 @@ const CreateApplicationModal = (props) => {
             type="checkbox"
             onChange={(e) => (setLinkedInConn(e.target.checked))}
           />
+          {missingRequired && 
+            <p className="text-center text-red-700 font-bold">Missing required fields</p>
+          }
           <div className="flex justify-end gap-2">
             <button className="btn btn-dark" onClick={() => createApplication()}>Create</button>
             <button className="btn btn-warning" onClick={() => props.setView(false)}>Cancel</button>
