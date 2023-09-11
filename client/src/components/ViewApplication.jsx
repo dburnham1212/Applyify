@@ -105,8 +105,13 @@ const ViewApplication = () => {
   }
 
   // INTERVIEW FUNCTIONS
-  const interviewCards = interviews.map(() => {
-    return <InterviewCardItem />
+  const interviewCards = interviews.map((interview) => {
+    return <InterviewCardItem 
+      dateOfInterview={interview.interview_date}
+      interviewer={interview.interviewer}
+      thankYouSent={interview.thank_you_note_sent}
+      dateSent={interview.date_sent}
+    />
   })
 
   // NOTE FUNCTIONS
