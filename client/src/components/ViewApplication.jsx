@@ -133,8 +133,8 @@ const ViewApplication = () => {
   const viewNotes = notes.map((note) => {
     return( 
       <div key={note.id} className="py-3">
-        <p className="font-bold">{moment(note.date_created).format('MM/DD/YYYY')}</p>
-        <p>{note.body}</p>
+        <p className="font-bold text-secondary-content">{moment(note.date_created).format('MM/DD/YYYY')}</p>
+        <p className="text-secondary-content">{note.body}</p>
       </div>
     );
   })
@@ -144,14 +144,14 @@ const ViewApplication = () => {
       
       <div className="w-11/12 mx-auto py-5">
         <div className="rounded overflow-hidden shadow-lg bg-secondary p-2 mx-auto border-2">
-          <div className="font-bold text-3xl text-center">
+          <div className="font-bold text-3xl text-center text-secondary-content">
             <h1>View Application</h1>
           </div>
           <div className="card-body">
             {editMode ? 
               <div>
                 <div className="form-group mb-1">
-                  <h5 className="font-bold">Company</h5>
+                  <h5 className="font-bold text-secondary-content">Company</h5>
                   <input 
                     className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-primary" 
                     value={company} 
@@ -159,7 +159,7 @@ const ViewApplication = () => {
                   />
                 </div>
                 <div className="form-group mb-1">
-                  <h5 className="font-bold">Title</h5>
+                  <h5 className="font-bold text-secondary-content">Title</h5>
                   <input 
                     className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-primary" 
                     value={position} 
@@ -167,7 +167,7 @@ const ViewApplication = () => {
                   />
                 </div>
                 <div className="form-group mb-1">
-                  <h5 className="font-bold">Job Posting Link</h5>
+                  <h5 className="font-bold text-secondary-content">Job Posting Link</h5>
                   <input 
                     className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-primary" 
                     value={link} 
@@ -175,7 +175,7 @@ const ViewApplication = () => {
                   />
                 </div>
                 <div className="form-group mb-1">
-                  <h5 className="font-bold">Date Found</h5>
+                  <h5 className="font-bold text-secondary-content">Date Found</h5>
                   <input 
                     type="date"
                     className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-primary" 
@@ -184,7 +184,7 @@ const ViewApplication = () => {
                   />
                 </div>
                 <div className="form-group mb-1">
-                  <h5 className="font-bold">Date Applied</h5>
+                  <h5 className="font-bold text-secondary-content">Date Applied</h5>
                   <input 
                     type="date"
                     className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-primary" 
@@ -192,13 +192,13 @@ const ViewApplication = () => {
                     onChange={(e) => setDateApplied(e.target.value)}
                   />
                 </div>
-                <h5 className="font-bold">Research Done</h5>
+                <h5 className="font-bold text-secondary-content">Research Done</h5>
                 <input 
                   type="checkbox" 
                   checked={researchDone}
                   onChange={(e) => (setResearchDone(e.target.checked))}
                 />
-                <h5 className="font-bold">LinkedIn Connection</h5>
+                <h5 className="font-bold text-secondary-content">LinkedIn Connection</h5>
                 <input 
                   type="checkbox" 
                   checked={linkedInConn}
@@ -207,20 +207,20 @@ const ViewApplication = () => {
               </div>
             :
               <div>
-                <h5 className="font-bold">Company</h5>
-                <p className="py-2">{company}</p>
-                <h5 className="font-bold">Title</h5>
-                <p className="py-2">{position}</p>
-                <h5 className="font-bold">Job Posting Link</h5>
-                <p className="py-2">{link}</p>
-                <h5 className="font-bold">Date Found</h5>
-                <p className="py-2">{moment(dateFound).format('MM/DD/YYYY')}</p>
-                <h5 className="font-bold">Date Applied</h5>
-                <p className="py-2">{moment(dateApplied).format('MM/DD/YYYY')}</p>
-                <h5 className="font-bold">Research Done</h5>
-                <p className="py-2">{researchDone ? "Yes" : "No"}</p>
-                <h5 className="font-bold">LinkedIn Connection</h5>
-                <p className="py-2">{linkedInConn ? "Yes" : "No"}</p>
+                <h5 className="font-bold text-secondary-content">Company</h5>
+                <p className="py-2 text-secondary-content">{company}</p>
+                <h5 className="font-bold text-secondary-content">Title</h5>
+                <p className="py-2 text-secondary-content">{position}</p>
+                <h5 className="font-bold text-secondary-content">Job Posting Link</h5>
+                <p className="py-2 text-secondary-content">{link}</p>
+                <h5 className="font-bold text-secondary-content">Date Found</h5>
+                <p className="py-2 text-secondary-content">{moment(dateFound).format('MM/DD/YYYY')}</p>
+                <h5 className="font-bold text-secondary-content">Date Applied</h5>
+                <p className="py-2 text-secondary-content">{moment(dateApplied).format('MM/DD/YYYY')}</p>
+                <h5 className="font-bold text-secondary-content">Research Done</h5>
+                <p className="py-2 text-secondary-content">{researchDone ? "Yes" : "No"}</p>
+                <h5 className="font-bold text-secondary-content">LinkedIn Connection</h5>
+                <p className="py-2 text-secondary-content">{linkedInConn ? "Yes" : "No"}</p>
               </div>
             }
             <div className="flex justify-end gap-2">
@@ -229,7 +229,7 @@ const ViewApplication = () => {
               :
                 <button className="btn btn-dark" onClick={()=>setEditMode(true)}>Edit</button>
               }
-              <button className="btn btn-warning" onClick={()=>deleteApplication()}>Delete</button>
+              <button className="btn btn-error" onClick={()=>deleteApplication()}>Delete</button>
             </div>
           </div>
           
@@ -246,10 +246,10 @@ const ViewApplication = () => {
 
         <div className="rounded overflow-hidden shadow-lg bg-secondary p-2 mx-auto my-2 border-2">
           <div className="text-center">
-            <h1 className="font-bold text-3xl">Notes</h1>
+            <h1 className="font-bold text-3xl text-secondary-content">Notes</h1>
           </div>
           <div className="card-body">
-            <h6 className="font-bold">New Note</h6>
+            <h6 className="font-bold text-secondary-content">New Note</h6>
             <textarea class="form-control" placeholder="note" onChange={(e) => setNewNote(e.target.value)}></textarea>
             <div className="flex justify-end">
               <button className="btn btn-dark" onClick={() => createNote()}>
