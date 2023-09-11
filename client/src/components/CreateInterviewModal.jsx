@@ -1,5 +1,9 @@
 import React from "react";
 
+const createInterview = () => {
+
+}
+
 const CreateInterviewModal = (props) => {
   return(
     <div>

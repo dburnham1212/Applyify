@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import CreateInterviewModal from "./CreateInterviewModal";
+import InterviewCardItem from "./InterviewCardItem";
 
 // MOMENT
 const moment = require('moment');
@@ -24,6 +25,7 @@ const ViewApplication = () => {
 
   // interview data
   const [viewInterviewModal, setViewInterviewModal] = useState(false);
+  const [interviews, setInterviews] = useState([]);
 
   // note data
   const [notes, setNotes] = useState([]);
@@ -54,6 +56,15 @@ const ViewApplication = () => {
     .then((res) => {
       console.log(res);
       setNotes(res.data.notes)
+    })
+    .catch((e) => {
+      console.log(e)
+    })
+
+    axios.get(`/interviews/application/${application_id}`)
+    .then((res) => {
+      console.log(res);
+      setInterviews(res.data.interviews);
     })
     .catch((e) => {
       console.log(e)
@@ -92,6 +103,11 @@ const ViewApplication = () => {
     })
 
   }
+
+  // INTERVIEW FUNCTIONS
+  const interviewCards = interviews.map(() => {
+    return <InterviewCardItem />
+  })
 
   // NOTE FUNCTIONS
   const createNote = async () => {
@@ -213,7 +229,9 @@ const ViewApplication = () => {
           </div>
           
         </div>
-        
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 mx-auto gap-2 my-2">
+          {interviewCards}
+        </div>
         <div className="flex justify-center align-center py-2">
           
           <button className="btn btn-dark" onClick={() => setViewInterviewModal(true)}>
