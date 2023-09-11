@@ -69,10 +69,10 @@ function Dashboard() {
           <table class="table table-striped border-dark table-auto">
             <thead className="text-center bg-secondary">
               <tr>
-                <th scope="col">Date Found</th>
-                <th scope="col">Position</th>
-                <th scope="col">Company</th>
-                <th scope="col">View</th>
+                <th className="text-base" scope="col">Date Found</th>
+                <th className="text-base" scope="col">Position</th>
+                <th className="text-base" scope="col">Company</th>
+                <th className="text-base" scope="col">View</th>
               </tr>
             </thead>
             <tbody className="text-center">
@@ -89,10 +89,10 @@ function Dashboard() {
       }
       <div className="flex justify-center pt-3">
         <button 
-          className="btn btn-dark btn-lg"
+          className="btn btn-dark"
           onClick={() => setViewNewAppModal(true)}
         >
-          +
+          + Add Application
         </button>
       </div>
       {/* New Application Modal */}

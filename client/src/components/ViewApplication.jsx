@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import CreateInterviewModal from "./CreateInterviewModal";
 
 // MOMENT
 const moment = require('moment');
@@ -21,9 +22,11 @@ const ViewApplication = () => {
   const [researchDone, setResearchDone] = useState(false);
   const [linkedInConn, setLinkedInConn] = useState(false);
 
+  // interview data
+  const [viewInterviewModal, setViewInterviewModal] = useState(false);
+
   // note data
   const [notes, setNotes] = useState([]);
-
   const [newNote, setNewNote] = useState("")
 
   // USE PARAMS
@@ -210,6 +213,14 @@ const ViewApplication = () => {
           </div>
           
         </div>
+        
+        <div className="flex justify-center align-center py-2">
+          
+          <button className="btn btn-dark" onClick={() => setViewInterviewModal(true)}>
+            + Add Interview
+          </button>
+        </div>
+
         <div className="rounded overflow-hidden shadow-lg bg-secondary p-2 mx-auto my-2 border-2">
           <div className="text-center">
             <h1 className="font-bold text-3xl">Notes</h1>
@@ -229,6 +240,7 @@ const ViewApplication = () => {
           
         </div>
       </div>
+      {viewInterviewModal && <CreateInterviewModal setView={setViewInterviewModal}/>}
     </div>
   )
 }
