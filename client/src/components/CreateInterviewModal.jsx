@@ -2,7 +2,6 @@ import React, { useState } from "react";
 
 import axios from "axios";
 
-
 const CreateInterviewModal = (props) => {
   const [interviewDate, setInterviewDate] = useState(null);
   const [interviewer, setInterviewer] = useState("");

@@ -27,6 +27,19 @@ router.post("/application/:id", (req, res) => {
         error: `error getting interview by application id: ${e.message}`,
       });
     });
+});
+
+router.post("/delete/:id", (req, res) => {
+  interviews
+    .deleteInterview(req.params.id)
+    .then((interview) => {
+      res.json({ interview });
+    })
+    .catch((e) => {
+      res.status(500).json({
+        error: `error getting interview by application id: ${e.message}`,
+      });
+    });
 
     
 });

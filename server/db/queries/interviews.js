@@ -10,7 +10,6 @@ const getInterviewByApplicationId = async (id) => {
 };
 
 const createInterview = async (id, interview) => {
-  console.log(interview);
   const { interviewDate, interviewer } = interview;
   try {
     const data = await db.query(
@@ -22,5 +21,16 @@ const createInterview = async (id, interview) => {
   }
 }
 
+const deleteInterview = async (id) => {
+  try {
+    const data = await db.query(
+      'DELETE FROM interviews WHERE id = $1 RETURNING *', 
+    [id]);
+    return data.rows[0];
+  } catch (error) {
+    throw error;
+  }
+}
 
-module.exports = { getInterviewByApplicationId, createInterview };
+
+module.exports = { getInterviewByApplicationId, createInterview, deleteInterview };

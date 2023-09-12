@@ -107,12 +107,15 @@ const ViewApplication = () => {
   // INTERVIEW FUNCTIONS
   const interviewCards = interviews.map((interview, index) => {
     return <InterviewCardItem 
+      key={index}
       interviewCount={index}
-      applicationId={application_id}
-      dateOfInterview={interview.interview_date}
+      id={interview.id}
+      setInterviews={setInterviews}
+      interviews={interviews}
+      dateOfInterview={moment(interview.interview_date).format("MM/DD/YYYY")}
       interviewer={interview.interviewer}
       thankYouSent={interview.thank_you_note_sent}
-      dateSent={interview.date_sent}
+      dateSent={moment(interview.date_sent).format("MM/DD/YYYY")}
     />
   })
 
