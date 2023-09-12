@@ -9,5 +9,18 @@ const getInterviewByApplicationId = async (id) => {
   }
 };
 
+const createInterview = async (id, interview) => {
+  console.log(interview);
+  const { interviewDate, interviewer } = interview;
+  try {
+    const data = await db.query(
+      'INSERT INTO interviews (application_id, interview_date, interviewer) VALUES ($1, $2, $3) RETURNING *', 
+    [id, interviewDate, interviewer]);
+    return data.rows[0];
+  } catch (error) {
+    throw error;
+  }
+}
 
-module.exports = { getInterviewByApplicationId};
+
+module.exports = { getInterviewByApplicationId, createInterview };

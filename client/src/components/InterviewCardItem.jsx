@@ -4,7 +4,7 @@ function InterviewCardItem(props) {
 
   return(
     <div className="w-full rounded overflow-hidden shadow-lg bg-secondary border-2">
-      <h1 className="font-bold text-xl text-center my-2 bg-secondary text-secondary-content">Interview</h1>
+      <h1 className="font-bold text-xl text-center my-2 bg-secondary text-secondary-content">Interview {props.interviewCount + 1}</h1>
       <div className="card-body">
         <h6 className="font-bold text-secondary-content">Date Of Interview</h6>
         <p className="text-secondary-content">{props.dateOfInterview}</p>

@@ -16,4 +16,19 @@ router.get("/application/:id", (req, res) => {
     
 });
 
+router.post("/application/:id", (req, res) => {
+  interviews
+    .createInterview(req.params.id, req.body)
+    .then((interview) => {
+      res.json({ interview });
+    })
+    .catch((e) => {
+      res.status(500).json({
+        error: `error getting interview by application id: ${e.message}`,
+      });
+    });
+
+    
+});
+
 module.exports = router;

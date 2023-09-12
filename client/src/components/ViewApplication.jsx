@@ -105,8 +105,10 @@ const ViewApplication = () => {
   }
 
   // INTERVIEW FUNCTIONS
-  const interviewCards = interviews.map((interview) => {
+  const interviewCards = interviews.map((interview, index) => {
     return <InterviewCardItem 
+      interviewCount={index}
+      applicationId={application_id}
       dateOfInterview={interview.interview_date}
       interviewer={interview.interviewer}
       thankYouSent={interview.thank_you_note_sent}
@@ -263,7 +265,7 @@ const ViewApplication = () => {
           
         </div>
       </div>
-      {viewInterviewModal && <CreateInterviewModal setView={setViewInterviewModal}/>}
+      {viewInterviewModal && <CreateInterviewModal setView={setViewInterviewModal} applicationId={application_id} interviews={interviews} setInterviews={setInterviews}/>}
     </div>
   )
 }
