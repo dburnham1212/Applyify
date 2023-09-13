@@ -32,5 +32,17 @@ const deleteInterview = async (id) => {
   }
 }
 
+const updateInterview = async (id, interview) => {
+  const { interviewDate, interviewer, thankYouSent, dateSent } = interview;
+  try {
+    const data = await db.query(
+      'UPDATE interviews SET interview_date = $2, interviewer = $3, thank_you_note_sent = $4, date_sent = $5 WHERE id = $1 RETURNING *', 
+    [id, interviewDate, interviewer, thankYouSent, dateSent]);
+    return data.rows[0];
+  } catch (error) {
+    throw error;
+  }
+}
 
-module.exports = { getInterviewByApplicationId, createInterview, deleteInterview };
+
+module.exports = { getInterviewByApplicationId, createInterview, deleteInterview, updateInterview };

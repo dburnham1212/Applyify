@@ -20,6 +20,23 @@ function InterviewCardItem(props) {
     })
   }
 
+  const saveInterview = () => {
+    axios.post(`/interviews/update/${props.id}`,
+    {
+      interviewDate,
+      interviewer,
+      thankYouSent,
+      dateSent
+    })
+    .then((res) => {
+      console.log(res);
+      setEditMode(false)
+    })
+    .catch((e) => {
+      console.log(e)
+    })
+  }
+
   return(
     <div className="w-full rounded overflow-hidden shadow-lg bg-secondary border-2">
       <h1 className="font-bold text-xl text-center my-2 bg-secondary text-secondary-content">Interview {props.interviewCount + 1}</h1>
@@ -54,7 +71,7 @@ function InterviewCardItem(props) {
           onChange={(e) => setDateSent(e.target.value)}
         />
         <div className="flex justify-end gap-2">
-          <button className="btn btn-dark" onClick={() => setEditMode(false)}>Save</button>
+          <button className="btn btn-dark" onClick={() => saveInterview()}>Save</button>
           <button className="btn btn-error" onClick={() => setEditMode(false)}>Cancel</button>
         </div>
       </div>
