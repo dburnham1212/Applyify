@@ -6,9 +6,9 @@ CREATE TABLE applications (
   user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE NOT NULL,
   company VARCHAR(50) NOT NULL,
   position VARCHAR(50) NOT NULL,
-  link VARCHAR(255),
-  research_done BOOLEAN DEFAULT FALSE,
-  linked_in_connection BOOLEAN DEFAULT FALSE,
+  link VARCHAR(255) NOT NULL,
   date_applied TIMESTAMP DEFAULT NOW(),
-  date_job_found TIMESTAMP DEFAULT NOW()
+  date_job_found TIMESTAMP DEFAULT NOW(),
+  research_done BOOLEAN DEFAULT FALSE,
+  linked_in_connection BOOLEAN DEFAULT FALSE
 );

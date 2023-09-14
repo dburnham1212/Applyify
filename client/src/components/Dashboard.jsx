@@ -7,6 +7,7 @@ import ApplicationListItem from "./ApplicationListItem";
 
 // CONTEXT PROVIDERS
 import { authContext } from "../providers/AuthProvider";
+import CreateApplicationModal from "./CreateApplicationModal";
 
 // MOMENT
 const moment = require('moment');
@@ -23,6 +24,7 @@ function Dashboard() {
 
   const [view, setView] = useState(viewStates.list)
   const [applications, setApplications] = useState([]);
+  const [viewNewAppModal, setViewNewAppModal] = useState(false)
 
   useEffect(() => {
     axios.get(`/applications/user/${user.id}`)
@@ -39,7 +41,7 @@ function Dashboard() {
       key={application.id}
       id={application.id}
       company={application.company}
-      dateApplied={moment(application.date_applied).format('MM/DD/YYYY')}
+      dateApplied={moment(application.date_job_found).format('MM/DD/YYYY')}
       position={application.position}
     />
   )
@@ -49,14 +51,14 @@ function Dashboard() {
       key={application.id} 
       id={application.id}
       company={application.company}
-      dateApplied={moment(application.date_applied).format('MM/DD/YYYY')}
+      dateApplied={moment(application.date_job_found).format('MM/DD/YYYY')}
       position={application.position}
     />
   )
 
   return(
     <div>
-      <h1 className="pt-5 text-center text-3xl">My Applications</h1>
+      <h1 className="py-5 text-center text-3xl font-bold text-primary-content">My Applications</h1>
       <div className="w-11/12 my-1 mx-auto flex gap-2">
         <button className="btn btn-dark my-1" onClick={() => setView(viewStates.list)}>List view</button>
         <button className="btn btn-dark my-1" onClick={() => setView(viewStates.card)}>Card view</button>
@@ -67,10 +69,10 @@ function Dashboard() {
           <table class="table table-striped border-dark table-auto">
             <thead className="text-center bg-secondary">
               <tr>
-                <th scope="col">Date</th>
-                <th scope="col">Position</th>
-                <th scope="col">Company</th>
-                <th scope="col">View</th>
+                <th className="text-base text-secondary-content" scope="col">Date Found</th>
+                <th className="text-base text-secondary-content" scope="col">Position</th>
+                <th className="text-base text-secondary-content" scope="col">Company</th>
+                <th className="text-base text-secondary-content" scope="col">View</th>
               </tr>
             </thead>
             <tbody className="text-center">
@@ -86,10 +88,15 @@ function Dashboard() {
         </div>
       }
       <div className="flex justify-center pt-3">
-        <button className="btn btn-dark btn-lg">
-          +
+        <button 
+          className="btn btn-dark"
+          onClick={() => setViewNewAppModal(true)}
+        >
+          + Add Application
         </button>
       </div>
+      {/* New Application Modal */}
+      {viewNewAppModal && <CreateApplicationModal setView={setViewNewAppModal}/>}
     </div>
   )
 }

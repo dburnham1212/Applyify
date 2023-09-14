@@ -53,6 +53,19 @@ router.post('/update/:id', (req, res) => {
   });
 });
 
+router.post('/create/user/:id', (req, res) => {
+  applications
+  .createApplication(req.body, req.params.id)
+  .then((application) => {
+    res.json({ application });
+  })
+  .catch((e) => {
+    res.status(500).json({
+      error: `error deleting application: ${e.message}`,
+    });
+  });
+});
+
 
 
 module.exports = router;
